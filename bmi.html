@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- My css framework -->
+    <link rel="stylesheet" href="https://raw.githack.com/programming2007/illustration/main/illustration.min.css">
+    <link rel="stylesheet" href="bmi.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>BMI Calculator</h1>
+        <div id="inputs">
+            
+            <input type="number" class="input" id="inp1" placeholder="Weight (kg)" step="0.5">
+            <br>
+            <input type="number" class="input" id="inp2" placeholder="Height (cm)" step="0.5">
+            <br/>
+
+            <input type="radio" name="gender" value="1" id="gender" />Male 
+            <input type="radio" name="gender" value="0" id="gender"/>Female
+
+            <div class="btn" id="btn" onclick="BMI()">Calculate</div>
+            <h2 id="bmi"></h2>
+        </div>
+        <div id="table">
+            <div class="head">
+                <table>
+                    <tr>
+                        <td>Weight standard</td>
+                        <td>BMI</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="body">
+            </div>
+        </div>
+    </div>
+    <script>
+        function BMI() {
+         if (inp1.value != "" && inp2.value != "") {
+            let inp1 = Number(document.getElementById("inp1").value)
+            let inp2 = Number(document.getElementById("inp2").value)
+            var gender=document.querySelector('input[name=gender]:checked').value;
+            let bmic = document.getElementById('bmi')
+            let m = inp2 / 100
+            let bm= inp1 / m ** 2
+if(gender<1){
+    document.write("You are female.You have "+inp1+"kg, and you are "+inp2+"cm tall."+"<br/>BMI VALUE : "+bm+"<br/>");
+}else{
+    document.write("You are male.You have "+inp1+"kg, and you are "+inp2+"cm tall."+"<br/>BMI VALUE : "+bm+"<br/>");}
+if (gender==1)
+{
+    
+//calculations for female
+
+if(bm<=18.5){
+    document.write("Under Weight<br/> "+
+"Your Diet <br />"+
+"Mon   -   1 cupmoong dal + 3 chapati <br/>"+
+"Tues   -  ½ cup curry leaf rice + curd+carrot <br/>"+
+"Wed   -  1 cup chicken curry + 2 chapati + ½ cuprice"+
+"<br/>"+
+"Thur   -  1 cup rajma curry + spinach fry + 1 cup rice<br/>"+
+"Fri       -  Egg+ okra fry + chana dal + 1 cup rice<br/>"+
+"Sat      -  Pulihora + 1/3 rd cup of kesari + 1 glass butter milk ");
+}else if (bm>18.5 && bm<25.0){
+    document.write("Normal<br/>Your Diet<br/>"+
+"Mon   -   1 cup moong dal + 2 chapati + ½ cup rice <br />"+
+"Tues   - 1  cup curry leaf rice + curd+carrot <br />"+
+"Wed   -  1 cup chicken curry + 1 cup rice <br />"+
+"Thur   -  1 cup rajma curry + spinach fry + 1 cup rice <br /> "+
+"Fri   -  Egg+ okra fry + chana dal + 1 chapati <br />"+
+"Sat      -  Pulihora + 1/3 rd cup of kesari + 1 glass butter milk");
+}
+else if (bm>=25.0 && bm<29.9){
+    document.write("over Weight <br/>Mon   -   1 cup moong dal + 2 chapati  <br />"+
+"Tues   - 1  cup curry leaf rice + curd+carrot <br />"+
+"Wed   -  1 cup chicken curry + 2 chapati <br />"+
+"Thur   -  1 cup rajma curry + spinach fry + 1 cup rice <br />"+
+"Fri       -  Egg+ okra fry + chana dal + 1 chapati <br/>" +
+"Sat      -  Pulihora + 1/3 rd cup of kesari + 1 glass butter milk ");
+
+}else if (bm>=29.9 ){
+    document.write("Obese<br/>Your Diet<br/>"+
+"Mon   -   1 cup moong dal + 1 chapati + ½ cup rice + veg salad <br />"+
+"Tues   - 1  cup curry leaf rice + curd+carrot <br />"+
+"Wed   -  1 cup chicken curry + 1/2 cup rice + 1 chapati<br/>" +
+"Thur   -  1 cup rajma curry + spinach fry + 2 chapati <br/>"+
+"Fri       -  Egg+ okra fry + chana dal + 1 rice <br />"+
+"Sat      -  Pulihora + 1/3 rd cup of kesari + 1 glass butter milk");
+}
+}}}
+</script>
